@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>{{ title }} - Note On The Go | Web App</title>
+    {% else %}
+        <title>Note On The Go | Web App</title>
+    {% endif %}
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma.min.css') }}">
+    <script src="https://kit.fontawesome.com/d62c804b4d.js" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script>
+        function removeNotification(){
+            var element = document.getElementById("remove");
+            element.remove();
+        }
+        
+        document.getElementById("uppercase").innerHTML.toUpperCase();
+    </script>
+</head>
+<body>
+    <!-- <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}"> Home </a></li>
+            <li><a href=""> About </a></li>
+            <li><a href=""> GitHub Repo </a></li>
+            <li><a href="#"> Login </a></li>
+        </ul>
+    </nav> -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="{{ url_for('index') }} ">
+            <!-- <img src="{{ url_for('static', filename='assets/noteonthego.png') }}" width="112" height="28"> -->
+            <div class="content control has-text-primary is-size-4">
+                <strong>NoteOnTheGo</strong>
+            </div>
+          </a>
+      
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="{{ url_for('index') }}">
+              Home
+            </a>
+      
+            <a class="navbar-item" href="#c2" style="scroll-behavior: smooth;">
+              Features
+            </a>
+      
+            <!-- <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">
+
+              </a>
+      
+              <div class="navbar-dropdown">
+                <a class="navbar-item">
+                  About
+                </a>
+                <a class="navbar-item">
+                  Jobs
+                </a>
+                <a class="navbar-item">
+                  Contact
+                </a>
+                <hr class="navbar-divider">
+                <a class="navbar-item">
+                  Report an issue
+                </a>
+              </div>
+            </div> -->
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                {% if not current_user.is_anonymous %}
+                  <!-- <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="dropdown-link" id="uppercase"> {{ current_user.username }}  </a>
+                    <div class="navbar-dropdown mr">
+                      <a class="navbar-item button is-warning" href="{{ url_for('logout') }}">
+                          Log Out
+                        </a>
+                    </div>
+                  </div> -->
+
+                  <a class="button is-primary is-outlined" href="{{ url_for('logout') }}">
+                    Log Out
+                  </a>
+                {% else %}
+                  <a class="button is-primary" href="{{ url_for('register') }}">
+                    <strong>Sign up</strong>
+                  </a>
+                  <a class="button is-light" href="{{ url_for('login') }}">
+                    Log in
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container has-text-centered is-size-5">
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger" id="remove">
+            <ul class="flashes">
+                
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            <button class="delete" onclick="removeNotification()"></button>
+        </div>
+        {% endif %}
+        {% endwith %}
+        
+    </div>
+      
+    <div class="conatainer content has-text-centered pt-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+    <div class="title conatainer has-text-centered" id="c2">Features Checklist :- </div>
+    <div class="container box content">
+      <blockquote>
+        <ul>
+          <li>
+            Delete Note
+            <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
+          </li>
+          <li>
+            Update Note
+            <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
+          </li>
+          <li>
+            Show date & Time of Note Added
+            <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
+          </li>
+          <li>
+            Decent UI
+            <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
+          </li>
+          <li>
+            Login & Sign Up
+            <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
+          </li>
+          <li>Add deadline menu</li>
+
+        </ul>
+      </blockquote>
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            
+            Made with <span class="icon" style="color: red;">
+                <i class="fas fa-heart"></i>
+            </span> by 
+            <strong><a href="https://prasantmahato.github.io">Prasant Mahato</a></strong>
+        </div>
+    </footer>
+    
+</body>
+</html>
