@@ -1,8 +1,6 @@
 /venv
 venv
 .DS_Store
-test.db
-*.db
 
 /__pycache__
 *.__pycache__

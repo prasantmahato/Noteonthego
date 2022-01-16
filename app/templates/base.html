@@ -84,18 +84,31 @@
             <div class="navbar-item">
               <div class="buttons">
                 {% if not current_user.is_anonymous %}
-                  <!-- <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="dropdown-link" id="uppercase"> {{ current_user.username }}  </a>
+                  <div class="navbar-item has-dropdown is-hoverable pr-5">
+                    <a class="dropdown-link" id="uppercase"> 
+                      <strong>
+                      Hello, {{ current_user.username }}
+                      </strong>
+                    </a>
+
                     <div class="navbar-dropdown mr">
                       <a class="navbar-item button is-warning" href="{{ url_for('logout') }}">
                           Log Out
                         </a>
                     </div>
-                  </div> -->
+                  </div>
+
+                <!-- <a href="" class="button is-ghost">««</a> -->
+
+                  <!-- <a href="" class="button is-ghost is-outlined"> 
+                    <strong>
+                      {{ current_user.username }}  
+                    </strong>
+                  </a>
 
                   <a class="button is-primary is-outlined" href="{{ url_for('logout') }}">
                     Log Out
-                  </a>
+                  </a> -->
                 {% else %}
                   <a class="button is-primary" href="{{ url_for('register') }}">
                     <strong>Sign up</strong>
