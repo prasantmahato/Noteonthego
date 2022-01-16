@@ -1,0 +1,86 @@
+/* CSS HEX */
+/* 
+--white: #fffeffff;
+--fuchsia: #ff01fbff;
+--carolina-blue: #02a9eaff;
+--lemon-glacier: #faff00ff;
+--rich-black-fogra-39: #000300ff;
+*/
+
+*{
+  /* margin: auto; */
+  width: auto;
+  /* color: #000000; */
+  /* font-size: 20px; */
+}
+a{
+  /* text-decoration: dotted; */
+  color: #02a9eaff;
+}
+h1{
+  color: #FAFF00;
+}
+body{
+  background-color: #000300;
+  color: white;
+  text-shadow: 2px;
+  text-align: center;
+}
+nav{
+  background-color: #FF01FB;
+  margin: 1%;
+  padding: 2%;
+}
+nav ul{
+  list-style-type: none ;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+nav ul li{
+  display: inline-block;
+}
+
+nav ul li a{
+  text-shadow: 2px;
+  text-decoration: none;
+  color: #F6F8FF;
+  font-size: 20px;
+  display: block;
+  padding: 8px;
+  /* background-color: rgb(209, 196, 221); */
+}
+.container{
+  font-size: 42px;
+  color: #F6F8FF;
+  /* text-shadow: 3px 2px 10px white; */
+}
+.note_text{
+  border: 0px;
+  border-color:red;
+  height: 40px;
+}
+
+.button{
+  width: 5rem;
+  background-color: #FF01FB;
+}
+.button:hover{
+  width: 5.2rem;
+  box-shadow: 2px 2px #23CE6B;
+}
+.note_text{
+  color: #23CE6B;
+  font-size: 20px;
+}
+
+.flashes{
+  color: red;
+  font-weight: bold;
+}
+
+
+footer{
+  color: #23CE6B;
+  margin-top: 20%;
+}
