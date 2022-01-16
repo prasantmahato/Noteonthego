@@ -1,5 +1,7 @@
 /venv
 venv
+/migrations
+migrations
 .DS_Store
 test.db
 *.db
