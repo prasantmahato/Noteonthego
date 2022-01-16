@@ -3,8 +3,6 @@ venv
 /migrations
 migrations
 .DS_Store
-test.db
-*.db
 
 /__pycache__
 *.__pycache__
