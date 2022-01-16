@@ -1,16 +1,31 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
 
-{% block title %}Update Note | NoteOnTheGo.com {% endblock %}
+<!-- {% block title %}Update Note | NoteOnTheGo.com {% endblock %} -->
 
 
-{% block body %}
+{% block content %}
     
-<div class="container">
+<div class="container is-fullhd has-text-centered">
     <br>
-    <h1 style="text-align:center; color: rgb(240, 80, 17);">Update Task</h1>
+    <!-- <h1 style="text-align:center; color: rgb(240, 80, 17);">Update Task</h1> -->
         <form style="text-align: center;" action="/update/{{task.id}}" method="POST">
-            <input type="text" name="content" id="content" value="{{task.content}}">
-            <button class="button">Update</button>
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <input class="input is-normal is-rounded" type="text" name="content" id="content"
+                    placeholder="Note" minlength="3" value="{{ task.content }}">
+                    <span class="icon is-small is-left">
+                        <i class="fas fa-edit"></i>
+                    </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+              </div>
+
+            <!-- <input type="text" name="content" id="content" value="{{task.content}}"> -->
+            <div class="control">
+                <button class="button is-warning is-rounded">Update</button>
+            </div>
         </form>
 </div>
 
