@@ -1,37 +1,60 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Register</h1>
-    <form action="" method="post">
+<div class="container content">
+
+    <h1>Register User</h1>
+    <form action="" method="post" class="conatainer content box" autocomplete="on">
         {{ form.hidden_tag() }}
         <p>
             {{ form.username.label }}<br>
-            {{ form.username(size=32) }}<br>
+            {{ form.username(size=64, class_='input is-size-5' ) }}<br>
             {% for error in form.username.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+                <span class="tag is-warning">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.email.label }}<br>
-            {{ form.email(size=64) }}<br>
+            {{ form.email(size=64, class_='input is-size-5' , type='email') }}<br>
             {% for error in form.email.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+                <span class="tag is-warning">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.password.label }}<br>
-            {{ form.password(size=32) }}<br>
+            {{ form.password(size=32, class_='input is-size-5' ) }}<br>
             {% for error in form.password.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+                <span class="tag is-warning">[{{ error }}]</span>
             {% endfor %}
         </p>
         <p>
             {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}<br>
+            {{ form.password2(size=32, class_='input is-size-5' ) }}<br>
             {% for error in form.password2.errors %}
-            <span style="color: red;">[{{ error }}]</span>
+                <span class="tag is-warning">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
+        <label class="checkbox">
+            <input type="checkbox">
+            I agree to the <span class="js-modal-trigger" data-target="modal-terms-and-conditions">
+                <a href="#">terms and conditions</a>
+            </span>
+
+        </label>
+
+        <p>{{ form.submit(class_="button is-primary is-outlined px-4") }}</p>
     </form>
+</div>
+
+<div id="modal-terms-and-conditions" class="modal">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+        <p class="is-text">Don't worry, there are no T&C's yet..!!</p>
+      </div>
+    </div>
+  
+    <button class="modal-close is-large" aria-label="close"></button>
+</div>
 {% endblock %}
