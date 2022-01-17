@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/gif/png" href=" {{ url_for('static', filename='assets/favicon.ico' ) }}  ">
     {% if title %}
         <title>{{ title }} - Note On The Go | Web App</title>
     {% else %}
         <title>Note On The Go | Web App</title>
     {% endif %}
-    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <script src="https://kit.fontawesome.com/d62c804b4d.js" crossorigin="anonymous"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
     <script>
         function removeNotification(){
-            var element = document.getElementById("remove");
+            let element = document.getElementById("remove");
             element.remove();
         }
-        
-        document.getElementById("uppercase").innerHTML.toUpperCase();
     </script>
 </head>
 <body>
@@ -56,6 +55,18 @@
             <a class="navbar-item" href="#c2" style="scroll-behavior: smooth;">
               Features
             </a>
+            <div class="navbar-item">
+              <p class="control">
+                <a class="navbar-item" href="https://github.com/prasantmahato/Noteonthego" style="scroll-behavior: smooth;" target="_blank">
+                  <span>Repo</span>
+                  <span class="icon is-size-5">
+                    <i class="fas fa-file-code"></i>
+                  </span>
+                </a>
+              </p>
+            </div>
+
+           
       
             <!-- <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
@@ -84,18 +95,31 @@
             <div class="navbar-item">
               <div class="buttons">
                 {% if not current_user.is_anonymous %}
-                  <!-- <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="dropdown-link" id="uppercase"> {{ current_user.username }}  </a>
+                  <div class="navbar-item has-dropdown is-hoverable pr-5">
+                    <a class="dropdown-link" id="uppercase"> 
+                      <strong>
+                      Hello, {{ current_user.username }} <i class="fas fa-chevron-down"></i>
+                      </strong>
+                    </a>
+
                     <div class="navbar-dropdown mr">
                       <a class="navbar-item button is-warning" href="{{ url_for('logout') }}">
                           Log Out
                         </a>
                     </div>
-                  </div> -->
+                  </div>
+
+                <!-- <a href="" class="button is-ghost">««</a> -->
+
+                  <!-- <a href="" class="button is-ghost is-outlined"> 
+                    <strong>
+                      {{ current_user.username }}  
+                    </strong>
+                  </a>
 
                   <a class="button is-primary is-outlined" href="{{ url_for('logout') }}">
                     Log Out
-                  </a>
+                  </a> -->
                 {% else %}
                   <a class="button is-primary" href="{{ url_for('register') }}">
                     <strong>Sign up</strong>
@@ -133,7 +157,7 @@
         {% endblock %}
     </div>
     
-    <div class="title conatainer has-text-centered" id="c2">Features Checklist :- </div>
+    <div class="title conatainer has-text-centered is-rounded" id="c2">Features Checklist :- </div>
     <div class="container box content">
       <blockquote>
         <ul>
@@ -163,14 +187,62 @@
       </blockquote>
     </div>
     <footer class="footer">
-        <div class="content has-text-centered">
-            
-            Made with <span class="icon" style="color: red;">
-                <i class="fas fa-heart"></i>
-            </span> by 
-            <strong><a href="https://prasantmahato.github.io">Prasant Mahato</a></strong>
-        </div>
+      <div class="content has-text-centered">
+          <!-- <p class="columns is-mobile"> 
+            <i class="is-size-5 fas fa-user"></i><a class="column" href="https://prasantmahato.github.io" target="_blank"> About Me</a> |  
+            <i class="is-size-5 fas fa-envelope"></i><a class="column" href="mailto:prasantmahato33@gmail.com" target="_blank"> E-Mail</a> |
+            <i class="is-size-5 fab fa-github"></i><a class="column" href="https://github.com/prasantmahato" target="_blank"> GitHub Profile</a> | 
+            <i class="is-size-5 fab fa-linkedin"></i><a class="column" href="https://www.linkedin.com/in/prasant-mahato/" target="_blank"> Connect Here</a>
+          </p> -->
+
+
+          <div class="columns is-tablet is-3 ">
+
+            <div class="column" id="removeDiv"></div> 
+            <div class="column button is-outlined is-ghost">
+              <i class="is-size-5 fas fa-user"></i>
+              <a href="https://prasantmahato.github.io" target="_blank"> About Me</a> 
+            </div>
+            <div class="column button is-outlined is-ghost">
+              <i class="is-size-5 fas fa-envelope"></i>
+              <a href="mailto:prasantmahato33@gmail.com" target="_blank"> E-Mail</a>
+            </div>
+            <div class="column button is-outlined is-ghost">
+              <i class="is-size-5 fab fa-github"></i>
+              <a href="https://github.com/prasantmahato" target="_blank"> GitHub Profile</a>
+            </div>
+            <div class="column button is-outlined is-ghost">
+              <i class="is-size-5 fab fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/prasant-mahato/" target="_blank"> Connect Here</a>
+            </div>
+            <div class="column" id="removeDiv"></div>
+           
+          </div>
+        
+        <strong>
+          <a href="https://twitter.com/prasant__mahato?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">
+            Follow @prasant__mahato
+          </a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </strong>
+
+        <hr>
+
+        <div>
+          Made with <span class="icon" style="color: red;">
+            <i class="fas fa-heart"></i>
+          </span> by 
+          <strong><a href="https://prasantmahato.github.io">Prasant Mahato</a></strong>
+  
+          &copy;
+          <span id="copyright">
+              <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+          </span>
+      </div>
+
+      </div>
     </footer>
-    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src=" {{url_for('static', filename='js/modal.js')}} "></script>
 </body>
 </html>
