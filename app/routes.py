@@ -9,7 +9,7 @@ from werkzeug.urls import url_parse
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def index():
     if(request.method == 'POST'):
         task_content = request.form['content']
