@@ -10,12 +10,11 @@ from werkzeug.urls import url_parse
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
-def index():
+def index(): 
     if(request.method == 'POST'):
         task_content = request.form['content']
-        print(len(task_content))
         if len(task_content) > 2:
-            new_task = Todo(content=task_content)
+            new_task = Todo(content=task_content, user_id = current_user.get_id())
             try:
                 db.session.add(new_task)
                 db.session.commit()
@@ -26,7 +25,9 @@ def index():
             flash('Include atleast 3 characters')
             return redirect(url_for('index'))
     else:
-        tasks = Todo.query.order_by(Todo.date_created).all() # alt:  .first 
+        # tasks = Todo.query.order_by(Todo.date_created).all() # alt:  .first 
+        tasks = Todo.query.filter_by(
+                user_id=current_user.get_id()).order_by(Todo.date_created).all()
         return render_template('index.html', tasks=tasks)
 
 

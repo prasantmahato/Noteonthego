@@ -138,7 +138,7 @@
 
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <div class="notification is-danger" id="remove">
+        <div class="notification is-danger box" id="remove">
             <ul class="flashes">
                 
                 {% for message in messages %}
@@ -157,7 +157,11 @@
         {% endblock %}
     </div>
     
-    <div class="title conatainer has-text-centered is-rounded" id="c2">Features Checklist :- </div>
+    <div class="title conatainer has-text-centered" id="c2">
+      <h2>
+        Features Checklist :- 
+      </h2>
+    </div>
     <div class="container box content">
       <blockquote>
         <ul>
