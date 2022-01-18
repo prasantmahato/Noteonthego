@@ -1,0 +1,21 @@
+<tr>
+    <td>
+        <!-- Date  -->
+        {{ task.date_created.strftime("%x") }}
+    </td>
+    <td>
+        <!-- Time  -->
+        {{ task.date_created.strftime("%H:%M") }}<br>
+    </td>
+
+    <td>
+        <!-- Task -->
+        {{ task.content }}
+    </td>
+    <td> 
+        <!-- Actions  -->
+        <a class="button is-small is-rounded is-warning" href="/update/{{task.id}}">Update</a>
+        <a class="button is-small is-rounded is-danger is-light" href="/delete/{{task.id}}">Delete</a> 
+    </td>
+
+</tr>
