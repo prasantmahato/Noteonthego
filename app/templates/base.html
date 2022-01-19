@@ -98,17 +98,21 @@
                   <div class="navbar-item has-dropdown is-hoverable pr-5">
                     <a class="dropdown-link" id="uppercase"> 
                       <strong>
-                      Hello, {{ current_user.username }} <i class="fas fa-chevron-down"></i>
+                      Welcome, {{ current_user.username }} <i class="fas fa-chevron-down"></i>
                       </strong>
                     </a>
 
+                    <div class="navbar-dropdown mr">
+                      <a class="navbar-item button" href="{{ url_for('user', username=current_user.username) }}">
+                          Edit Profile
+                        </a>
+                    </div>
                     <div class="navbar-dropdown mr">
                       <a class="navbar-item button is-warning" href="{{ url_for('logout') }}">
                           Log Out
                         </a>
                     </div>
                   </div>
-
                 <!-- <a href="" class="button is-ghost">««</a> -->
 
                   <!-- <a href="" class="button is-ghost is-outlined"> 
@@ -186,6 +190,9 @@
             <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
           </li>
           <li>Add deadline menu</li>
+          <li>Show time in localzone</li>
+          <li>Create edit profile page for users.</li>
+          <li>Have password reset mechanism</li>
 
         </ul>
       </blockquote>
