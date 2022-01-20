@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="/choice", method="post">
+        {{ form.csrf_token }}
+        {{ form.profile_image_options }}
+        <ul>
+            {% for error in form.profile_image_options.error %}
+                <li style="color: red;"> {{ error }}  </li>
+            {% endfor %}
+        </ul>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </form>
+{% endblock %}

@@ -103,14 +103,13 @@
                     </a>
 
                     <div class="navbar-dropdown mr">
-                      <a class="navbar-item button" href="{{ url_for('user', username=current_user.username) }}">
-                          Edit Profile
-                        </a>
-                    </div>
-                    <div class="navbar-dropdown mr">
+                      <a class="navbar-item button is-ghost" href="{{ url_for('user', username=current_user.username) }}">
+                        Profile
+                      </a>
+                      <hr class="navbar-divider">
                       <a class="navbar-item button is-warning" href="{{ url_for('logout') }}">
-                          Log Out
-                        </a>
+                        Log Out
+                      </a>
                     </div>
                   </div>
                 <!-- <a href="" class="button is-ghost">««</a> -->
@@ -142,7 +141,7 @@
 
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-        <div class="notification is-danger box" id="remove">
+        <div class="notification is-warning box" id="remove">
             <ul class="flashes">
                 
                 {% for message in messages %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Edit Profile</h1>
+    <form action="" method="POST" class="container content">
+        {{ form.hidden_tag() }}
+        <div class="columns">
+
+            <div class="column">
+                {{ form.first_name.label('First Name')  }}<br>
+                {{ form.first_name(size=32, class_='input', value=current_user.first_name, autofocus='on') }}<br>
+                {% for error in form.first_name.errors %}
+                <span style="color: red;" class="tag is-warning">[{{ error }} ]</span>
+                {% endfor %}
+            </div>
+            <div class="column">
+                {{ form.last_name.label('Last Name')  }}<br>
+                {{ form.last_name(size=32, class_='input', value=current_user.last_name) }}<br>
+                {% for error in form.last_name.errors %}
+                <span style="color: red;">[{{ error }} ]</span>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="columns control">
+            <div class="column">
+                {{ form.username.label  }}<br>
+                {{ form.username(size=32 ,class_='input') }}<br>
+                {% for error in form.username.errors %}
+                <span class="tag is-warning">[{{ error }} ]</span>
+                {% endfor %}
+            </div>
+        </div>
+            {{ form.about_me.label  }}<br>
+            <div class="container content mx-6 px-4 control">
+                {{ form.about_me(size=10, class_='textarea is-centered is-normal', rows=2) }}<br>
+                {% for error in form.about_me.errors %}
+                <span style="color: red;">[{{ error }} ]</span>
+                {% endfor %}
+            </div>
+
+        <p>{{ form.submit(class_='button is-primary is-outlined', value='Confirm') }}</p>
+    </form>
+    <br>
+    <div class="button is-normal is-ghost">
+        <a href="{{ url_for('user', username=current_user.username) }} "><span>&leftarrow;</span> Back to Profile</a>
+    </div>
+    <hr>
+{% endblock %}

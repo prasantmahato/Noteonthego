@@ -5,7 +5,7 @@
     <form action="" method="post" novalidate class="box content container">
         {{ form.hidden_tag() }}
         <p>
-            {{ form.username.label }} <span class="is-text is-info">(Susan)</span><br>
+            {{ form.username.label }} <span class="is-text is-info">(susan)</span><br>
             {{ form.username(size=32, class_='input is-size-5' ) }}<br> 
             {% for error in form.username.errors %}
             <span class="tag is-warning">[{{ error }}]</span>

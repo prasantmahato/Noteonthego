@@ -1,4 +1,6 @@
+from cProfile import Profile
 from distutils.log import info
+import profile
 from app import app, db
 from flask import request, redirect, render_template, url_for, flash
 from app.model import Todo, User
@@ -96,7 +98,8 @@ def register():
     # Insert registered user to database
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = User(username=form.username.data.lower(), email=form.email.data)
+        user = User(username=form.username.data.lower(),first_name=form.first_name.data, 
+                    last_name=form.last_name.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -106,7 +109,7 @@ def register():
 
 
 # User profile view function
-@app.route('/user/<username>')
+@app.route('/user/<username>', methods=['GET', 'POST'])
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
@@ -118,14 +121,15 @@ def user(username):
 @login_required
 def edit_profile():
     form = EditProfileForm(current_user.username)
+    # form.profile_images.choices = []
     if form.validate_on_submit():
         current_user.username = form.username.data.lower()
         current_user.about_me = form.about_me.data
         current_user.first_name = form.first_name.data
         current_user.last_name = form.last_name.data
         db.session.commit()
-        flash('Your changes have been saved.')
-        return redirect(url_for('edit_profile'))
+        flash('Profile changes updated successfully')
+        return redirect('user/'+current_user.username)
     elif request.method == 'GET':
         form.username.data = current_user.username
         form.about_me.data = current_user.about_me

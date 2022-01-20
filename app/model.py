@@ -4,6 +4,7 @@ from app import app, db, login
 
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from hashlib import md5
 
 #   Defining Database
 class Todo(db.Model):
@@ -18,13 +19,13 @@ class Todo(db.Model):
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
-    about_me = db.Column(db.String(64))
+    about_me = db.Column(db.String(64), nullable=True)
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     notes = db.relationship('Todo', backref='author', lazy='dynamic')
-
+    
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -34,6 +35,9 @@ class User(UserMixin, db.Model):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def avatar(self, profile_image, size):
+        digest = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return 'https://www.gravatar.com/avatar/{}?d={}&s={}'.format(digest,profile_image, size)
 
 @login.user_loader
 def load_user(id):

@@ -56,6 +56,13 @@
         {% for task in tasks %}
             {% include '_task.html' %}
         {% endfor %}
+
+        {% if prev_url %}
+        <a href="{{ prev_url }}">Next Page</a>
+        {% endif %}
+        {% if next_url %}
+        <a href="{{ next_url }}">Older </a>
+        {% endif %}
     </table>
     {% endif %}
 

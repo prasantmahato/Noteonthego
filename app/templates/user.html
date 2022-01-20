@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container content">
+
+    <table>
+        <tr valing='top'>
+            <td class="content">
+                <figure>
+                        <img src="{{ user.avatar('robohash', size='128') }}" style="border: 1px solid hsl(171, 100%, 41%);" class="box">
+                </figure>
+            <!-- </td>
+            <td> -->
+                <p class="is-text is-size-5 title">
+                    {{ user.first_name }} {{ user.last_name  }}
+                </p>
+                {% if user.about_me %}
+                    <p>{{ user.about_me }} </p> 
+                {% endif %}
+                {% if user == current_user %}
+                <p><a href=" {{ url_for('edit_profile') }}  ">Edit your profile <span>&rightarrow;</span></a></p>
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    <hr>
+</div>
+{% endblock %}
