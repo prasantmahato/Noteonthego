@@ -9,3 +9,6 @@ app.db
 /__pycache__
 *.__pycache__
 *.pyc
+
+/logs
+*.log

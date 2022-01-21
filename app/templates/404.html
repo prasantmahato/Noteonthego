@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>File Not Found</h1>
-    <p><a href=" {{ url_for('index')  }}  ">Back</a></p>
+<div class="notification is-danger ">
+    <h1 class="title is-text is-2">File Not Found</h1>
+    <p class="subtitle is-text">&leftarrow; <a href=" {{ url_for('index')  }}  ">Back</a></p>
+</div>
 {% endblock %}
