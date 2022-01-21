@@ -13,5 +13,7 @@ login = LoginManager(app)
 login.login_view = 'login'
 login.login_message_category = 'warning'
 
+from .momentjs import momentjs
+app.jinja_env.globals['momentjs'] = momentjs
 from app import routes, model, errors
 

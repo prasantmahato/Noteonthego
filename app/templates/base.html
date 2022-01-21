@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <script src="https://kit.fontawesome.com/d62c804b4d.js" crossorigin="anonymous"></script>
-
+    <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
     <script>
         function removeNotification(){
             let element = document.getElementById("remove");
@@ -244,9 +244,7 @@
         <hr>
 
         <div>
-          Made with <span class="icon" style="color: red;">
-            <i class="fas fa-heart"></i>
-          </span> by 
+          Made with <span class="icon is-size-5" style="color: red;">&hearts;</span> by 
           <strong><a href="https://prasantmahato.github.io">Prasant Mahato</a></strong>
   
           &copy;
