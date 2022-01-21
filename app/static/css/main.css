@@ -1,13 +1,3 @@
-#username, #password, #email, #password2{
-  width: 33%;
-}
-@media only screen and (max-width: 768px) {
-  #username, #password, #password2, #email{
-    width: 100%;
-  }
-}
-
-
 .fa-user{
   color: rgb(109, 109, 253);
 }

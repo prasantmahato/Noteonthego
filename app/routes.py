@@ -25,7 +25,7 @@ def index():
             except:
                 return "There was an issue adding your task"
         else:
-            flash('Include atleast 3 characters')
+            flash('Include atleast 3 characters', category='danger')
             return redirect(url_for('index'))
     else:
         # tasks = Todo.query.order_by(Todo.date_created).all() # alt:  .first 
@@ -41,6 +41,7 @@ def delete(id):
     try:
         db.session.delete(task_to_delete)
         db.session.commit()
+        flash('Note deleted', category='danger')
         return redirect('/')
     
     except:
@@ -56,6 +57,7 @@ def update(id):
         
         try:
             db.session.commit()
+            flash('Note updated', category='success')
             return redirect('/')
         except:
             return "There was an issue in update"
@@ -72,7 +74,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
+            flash('Invalid username or password', category='danger')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
@@ -86,7 +88,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    flash('You have been logged out.')
+    flash('You have been logged out.', category='warning')
     return redirect(url_for('index'))
 
 # Method to register users 
@@ -103,7 +105,7 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Congratulations, you are now a registered user!')
+        flash('Congratulations, you are now a registered user!', category='success')
         return redirect(url_for('login'))
     return render_template('register.html', title='Sign Up', form=form)
 
@@ -128,7 +130,7 @@ def edit_profile():
         current_user.first_name = form.first_name.data
         current_user.last_name = form.last_name.data
         db.session.commit()
-        flash('Profile changes updated successfully')
+        flash('Profile updated successfully.', category='success')
         return redirect('user/'+current_user.username)
     elif request.method == 'GET':
         form.username.data = current_user.username

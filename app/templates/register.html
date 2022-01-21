@@ -6,71 +6,70 @@
     <h1>Register User</h1>
     <form action="" method="post" class="conatainer content box" autocomplete="on" autocapitalize="on">
         {{ form.hidden_tag() }}
-        <div class="columns">
-            <div class="column">
-                <p>
-                    {{ form.first_name.label }} <br>
-                    {{ form.first_name(size=32, class_='input is-size-5')}} <br>
-                    {% for error in form.username.errors %}
+        <div class="container control content">
+            
+            <div class="columns">
+                <div class="column">
+                    <p>
+                        {{ form.first_name.label }} <br>
+                        {{ form.first_name(size=32, class_='input is-size-5', autofocus='true')}} <br>
+                        {% for error in form.username.errors %}
                         <span class="tag is-warning">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-            </div>
-            <div class="column">
-                <p>
-                    {{ form.last_name.label }} <br>
-                    {{ form.last_name(size=32, class_='input is-size-5')}} <br>
-                    {% for error in form.username.errors %}
-                        <span class="tag is-warning">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <p>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="column">
                     {{ form.username.label }}<br>
-                    {{ form.username(size=64, class_='input is-size-5' ) }}<br>
+                    {{ form.username(size=32, class_='input is-size-5', type='text' ) }}<br>
                     {% for error in form.username.errors %}
-                        <span class="tag is-warning">[{{ error }}]</span>
+                    <span class="tag is-warning">[{{ error }}]</span>
                     {% endfor %}
-                </p>
-            </div>
-            <div class="column">
-                <p>
-                    {{ form.email.label }}<br>
-                    {{ form.email(size=64, class_='input is-size-5' , type='email') }}<br>
-                    {% for error in form.email.errors %}
+                </div>
+                <div class="column">
+                    <p>
+                        {{ form.last_name.label }} <br>
+                        {{ form.last_name(size=32, class_='input is-size-5')}} <br>
+                        {% for error in form.username.errors %}
                         <span class="tag is-warning">[{{ error }}]</span>
-                    {% endfor %}
-                </p>
+                        {% endfor %}
+                    </p>
+                </div>
+                <div class="column">
+                    <p>
+                        {{ form.email.label }}<br>
+                        {{ form.email(size=32, class_='input is-size-5' , type='email') }}<br>
+                        {% for error in form.email.errors %}
+                        <span class="tag is-warning">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
             </div>
+                
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32, class_='input is-size-5' ) }}<br>
+                {% for error in form.password.errors %}
+                <span class="tag is-warning">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password2.label }}<br>
+                {{ form.password2(size=32, class_='input is-size-5' ) }}<br>
+                {% for error in form.password2.errors %}
+                <span class="tag is-warning">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <label class="checkbox">
+                <input type="checkbox">
+                I agree to the <span class="js-modal-trigger" data-target="modal-terms-and-conditions">
+                    <a href="#">terms and conditions</a>
+                </span>
+                
+            </label>
+            
+            <p>{{ form.submit(class_="button is-primary is-outlined px-4") }}</p>
         </div>
-    
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32, class_='input is-size-5' ) }}<br>
-            {% for error in form.password.errors %}
-                <span class="tag is-warning">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32, class_='input is-size-5' ) }}<br>
-            {% for error in form.password2.errors %}
-                <span class="tag is-warning">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <label class="checkbox">
-            <input type="checkbox">
-            I agree to the <span class="js-modal-trigger" data-target="modal-terms-and-conditions">
-                <a href="#">terms and conditions</a>
-            </span>
-
-        </label>
-
-        <p>{{ form.submit(class_="button is-primary is-outlined px-4") }}</p>
-    </form>
+        </form>
 </div>
 
 <div id="modal-terms-and-conditions" class="modal">
