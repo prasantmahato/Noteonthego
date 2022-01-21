@@ -1,24 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Sign In</h1>
+    <h1 class="title is-2">Sign In</h1>
     <form action="" method="post" novalidate class="box content container">
         {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }} <span class="is-text is-info">(susan)</span><br>
-            {{ form.username(size=32, class_='input is-size-5' ) }}<br> 
-            {% for error in form.username.errors %}
-            <span class="tag is-warning">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }} <span class="is-text is-info">(cat)</span> <br>
-            {{ form.password(size=32, class_='input is-size-5') }}<br>
-            {% for error in form.password.errors %}
-            <span class="tag is-warning">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+        <div class="columns">
+            <div class="column auto"></div>
+            <div class="column is-three-quaters">
+                <p>
+                    {{ form.username.label(class_='is-size-5') }} <span class="is-text is-info">(susan)</span><br>
+                    {{ form.username(size=32, class_='input is-size-5', autofocus='on') }}<br> 
+                    {% for error in form.username.errors %}
+                    <span class="tag is-warning">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="column auto"></div>
+        </div>
+        
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column">
+                <p>
+                    {{ form.password.label(class_='is-size-5') }} <span class="is-text is-info">(cat)</span> <br>
+                    {{ form.password(size=32, class_='input is-size-5') }}<br>
+                    {% for error in form.password.errors %}
+                    <span class="tag is-warning">[{{ error }}]</span>
+                    {% endfor %}
+                </p>
+            </div>
+            <div class="column"></div>
+        </div>
+
+
+        <p>{{ form.remember_me() }} {{ form.remember_me.label(class_='is-size-5') }}</p>
         <p>{{ form.submit( class_='button is-primary') }}</p>
         <div class="container content">
             <p><a href="{{ url_for('register') }}">Forgot Your password?</a></p>        

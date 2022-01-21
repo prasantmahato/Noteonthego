@@ -3,40 +3,47 @@
 {% block content %}
 <div class="container content">
 
-    <h1>Register User</h1>
+    <h1 class="title is-2">Register User</h1>
     <form action="" method="post" class="conatainer content box" autocomplete="on" autocapitalize="on">
         {{ form.hidden_tag() }}
-        <div class="container control content">
-            
+        <div class="container control content is-max-desktop is-fullhd">
+
             <div class="columns">
+                
                 <div class="column">
                     <p>
-                        {{ form.first_name.label }} <br>
+                        {{ form.first_name.label(class_='is-text is-size-5') }} <br>
                         {{ form.first_name(size=32, class_='input is-size-5', autofocus='true')}} <br>
-                        {% for error in form.username.errors %}
+                        {% for error in form.first_name.errors %}
                         <span class="tag is-warning">[{{ error }}]</span>
                         {% endfor %}
                     </p>
                 </div>
                 <div class="column">
-                    {{ form.username.label }}<br>
-                    {{ form.username(size=32, class_='input is-size-5', type='text' ) }}<br>
-                    {% for error in form.username.errors %}
-                    <span class="tag is-warning">[{{ error }}]</span>
-                    {% endfor %}
-                </div>
-                <div class="column">
                     <p>
-                        {{ form.last_name.label }} <br>
+                        {{ form.last_name.label(class_='is-text is-size-5') }} <br>
                         {{ form.last_name(size=32, class_='input is-size-5')}} <br>
+                        {% for error in form.last_name.errors %}
+                        <span class="tag is-warning">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+            <div class="columns">
+
+                <div class="column">
+                    <p>
+                        {{ form.username.label(class_='is-text is-size-5') }}<br>
+                        {{ form.username(size=32, class_='input is-size-5', type='text' ) }}<br>
                         {% for error in form.username.errors %}
                         <span class="tag is-warning">[{{ error }}]</span>
                         {% endfor %}
                     </p>
                 </div>
+
                 <div class="column">
                     <p>
-                        {{ form.email.label }}<br>
+                        {{ form.email.label(class_='is-text is-size-5') }}<br>
                         {{ form.email(size=32, class_='input is-size-5' , type='email') }}<br>
                         {% for error in form.email.errors %}
                         <span class="tag is-warning">[{{ error }}]</span>
@@ -46,14 +53,14 @@
             </div>
                 
             <p>
-                {{ form.password.label }}<br>
+                {{ form.password.label(class_='is-text is-size-5') }}<br>
                 {{ form.password(size=32, class_='input is-size-5' ) }}<br>
                 {% for error in form.password.errors %}
                 <span class="tag is-warning">[{{ error }}]</span>
                 {% endfor %}
             </p>
             <p>
-                {{ form.password2.label }}<br>
+                {{ form.password2.label(class_='is-text is-size-5') }}<br>
                 {{ form.password2(size=32, class_='input is-size-5' ) }}<br>
                 {% for error in form.password2.errors %}
                 <span class="tag is-warning">[{{ error }}]</span>
