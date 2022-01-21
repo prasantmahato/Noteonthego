@@ -137,3 +137,11 @@ def edit_profile():
         form.about_me.data = current_user.about_me
     
     return render_template('edit_profile.html', title='Edit Profile', form=form, user=user)
+
+
+# List all People
+@app.route('/explore')
+@login_required
+def explore():
+    users = User.query.all()
+    return render_template('explore.html', users=users)
