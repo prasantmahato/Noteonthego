@@ -4,6 +4,11 @@ venv
 migrations
 .DS_Store
 
+app.db
+*.db
+
+/logs
+*.log
 /__pycache__
 *.__pycache__
 *.pyc

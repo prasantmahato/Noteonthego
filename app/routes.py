@@ -1,7 +1,3 @@
-from cProfile import Profile
-from distutils.log import info
-import profile
-from turtle import title
 from app import app, db
 from flask import request, redirect, render_template, url_for, flash
 from app.model import Todo, User
