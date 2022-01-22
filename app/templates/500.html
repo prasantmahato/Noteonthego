@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>An unexpected error has occurred</h1>
-    <p>The admininstrator has been notified. Sorry for the inconvenience!</p>
-    <p><a href=" {{ url_for('index')  }}  ">Back</a></p>
+<div class="notification is-danger">
+
+    <h1 class="title is-text is-2">An unexpected error has occurred</h1>
+    <p class="subtitle">The admininstrator has been notified. Sorry for the inconvenience!</p>
+    <p class="is-text">&leftarrow;<a href=" {{ url_for('index')  }}  ">Back</a></p>
+</div>
 {% endblock %}

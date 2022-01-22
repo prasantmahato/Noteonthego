@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container content is-max-desktop control">
+    <div class="mx-4">
+        <a href=" {{ url_for('explore') }}">
+            <strong class="title is-3 px-4">People Around The Globe</strong>
+        </a>
+    </div>
+    <hr>
+    <table class="table">
+        {% for user in users %}
+        <tr>
+            <td style="border: none;">
+                <img src="{{ user.avatar('robohash', size='85') }}" 
+                style="border: 1px solid hsl(171, 100%, 41%);" >
+                <br>
+                <a href=" {{ url_for('user', username=user.username) }} ">
+                    <strong>{{user.first_name}} {{user.last_name}}</strong>
+                </a>
+                <p>
+                    {{ user.about_me }}
+                </p>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+{% endblock %}

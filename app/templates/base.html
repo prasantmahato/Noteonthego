@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bulma.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
     <script src="https://kit.fontawesome.com/d62c804b4d.js" crossorigin="anonymous"></script>
-
+    <script src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
     <script>
         function removeNotification(){
             let element = document.getElementById("remove");
@@ -51,7 +51,9 @@
             <a class="navbar-item" href="{{ url_for('index') }}">
               Home
             </a>
-      
+            <a class="navbar-item" href=" {{ url_for('explore') }} ">
+              Explore
+            </a>
             <a class="navbar-item" href="#c2" style="scroll-behavior: smooth;">
               Features
             </a>
@@ -191,10 +193,18 @@
             Login & Sign Up
             <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
           </li>
-          <li>Add deadline menu</li>
-          <li>Show time in localzone</li>
-          <li>Create edit profile page for users.</li>
-          <li>Have password reset mechanism</li>
+          <li>Add deadline menu
+            <span class="icon has-text-info "><i class="fas fa-tools"></i></span>
+          </li>
+          <li>Show time in localzone
+            <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
+          </li>
+          <li>Create edit profile page for users.
+            <span class="icon has-text-success "><i class="fas fa-check-square"></i></span> 
+          </li>
+          <li>Have password reset mechanism
+            <span class="icon has-text-info "><i class="fas fa-tools"></i></span>
+          </li>
 
         </ul>
       </blockquote>
@@ -231,7 +241,6 @@
             <div class="column" id="removeDiv"></div>
            
           </div>
-        
         <strong>
           <a href="https://twitter.com/prasant__mahato?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">
             Follow @prasant__mahato
@@ -242,9 +251,7 @@
         <hr>
 
         <div>
-          Made with <span class="icon" style="color: red;">
-            <i class="fas fa-heart"></i>
-          </span> by 
+          Made with <span class="icon is-size-5" style="color: red;">&hearts;</span> by 
           <strong><a href="https://prasantmahato.github.io">Prasant Mahato</a></strong>
   
           &copy;
@@ -252,8 +259,8 @@
               <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
           </span>
       </div>
-
-      </div>
+    </div>
+  
     </footer>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
     <script src=" {{url_for('static', filename='js/modal.js')}} "></script>

@@ -1,11 +1,7 @@
 <tr>
     <td>
-        <!-- Date  -->
-        {{ task.date_created.strftime("%x") }}
-    </td>
-    <td>
         <!-- Time  -->
-        {{ task.date_created.strftime("%H:%M") }}<br>
+        {{  momentjs(task.date_created).calendar() }}
     </td>
 
     <td>

@@ -36,7 +36,7 @@
         <p>{{ form.remember_me() }} {{ form.remember_me.label(class_='is-size-5') }}</p>
         <p>{{ form.submit( class_='button is-primary') }}</p>
         <div class="container content">
-            <p><a href="{{ url_for('register') }}">Forgot Your password?</a></p>        
+            <p><a href="{{ url_for('reset_password_request') }}">Forgot Your password?</a></p>        
             <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
         </div>
     </form>
