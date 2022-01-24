@@ -4,7 +4,7 @@
     <h1 class="title is-2">Sign In</h1>
     <form action="" method="post" novalidate class="box content container">
         {{ form.hidden_tag() }}
-        <div class="columns">
+        <!-- <div class="columns">
             <div class="column auto"></div>
             <div class="column is-three-quaters">
                 <p>
@@ -30,8 +30,45 @@
                 </p>
             </div>
             <div class="column"></div>
+        </div> -->
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column">
+                <div class="field">
+                    <p class="control has-icons-left has-icons-right">
+                        {{ form.username(size=32, class_='input is-size-5', placeholder='Username', autofocus='on') }} <br>
+                        <span class="icon is-size-5 is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-size-5 is-right">
+                        <i class="fas fa-check"></i>
+                        </span>
+                        {% for error in form.username.errors %}
+                            <span class="tag is-warning">[{{ error }}]</span>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+            <div class="column"></div>
         </div>
-
+        
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column">
+                <div class="field">
+                    <p class="control has-icons-left">
+                    {{ form.password(size=32, class_='input is-size-5', placeholder='Password') }}
+                      <span class="icon is-size-5 is-left">
+                        <i class="fas fa-lock"></i>
+                      </span>
+                    {% for error in form.password.errors %}
+                        <span class="tag is-warning">[{{ error }}]</span>
+                    {% endfor %}
+                    </p>
+                  </div>
+            </div>
+            <div class="column"></div>
+        </div>
 
         <p>{{ form.remember_me() }} {{ form.remember_me.label(class_='is-size-5') }}</p>
         <p>{{ form.submit( class_='button is-primary') }}</p>
