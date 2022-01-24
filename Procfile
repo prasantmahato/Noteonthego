@@ -1,1 +1,1 @@
-web: gunicorn main:app
+web:flask b upgrade; web: gunicorn main:app
